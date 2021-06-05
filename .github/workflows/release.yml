@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Copy env and docker-compose files
+        run: |
+          cp .env.example .env
+          cp docker-compose.override.yml.example docker-compose.override.yml
+
+      - name: Build container
+        run: docker-compose build
+
+      - name: Log into Docker
+        run: echo ${DOCKER_TOKEN} | docker --login ${DOCKER_USER} --password-stdin
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Push container
+        run: docker-compose push
+
