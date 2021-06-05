@@ -84,15 +84,6 @@ scriptsDir.close();
 
 hookd.get("/up", (_, response) => response.sendStatus(200));
 
-hookd.post(
-  "/docker",
-  (request, response) =>
-  {
-    console.log(request);
-    response.send();
-  }
-);
-
 const PORT = process.env.HOOKD_PORT || 8080;
 hookd.listen(
   PORT,
