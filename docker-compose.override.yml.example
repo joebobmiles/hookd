@@ -1,0 +1,9 @@
+services:
+    hookd:
+        user: root:root
+        build: .
+        restart: "no"
+        volumes:
+            - .:/srv/hookd
+        entrypoint: npm run develop
+        env_file: .env
