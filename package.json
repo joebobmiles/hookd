@@ -7,7 +7,12 @@
     "start": "node ./src/index.js",
     "develop": "nodemon -e json,js,mjs,sh -L ./src/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "docker",
+    "webhook",
+    "server",
+    "scripts"
+  ],
   "author": "Joseph R Miles <joe@jrm.dev> (https://jrm.dev)",
   "license": "Unlicense",
   "dependencies": {
