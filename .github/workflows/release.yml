@@ -23,7 +23,7 @@ jobs:
         run: docker-compose build
 
       - name: Log into Docker
-        run: echo ${DOCKER_TOKEN} | docker --login ${DOCKER_USER} --password-stdin
+        run: echo ${DOCKER_TOKEN} | docker login ${DOCKER_USER} --password-stdin
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
