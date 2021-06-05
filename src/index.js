@@ -59,7 +59,11 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
             () => response.sendStatus(200)
           )
           .catch(
-            () => response.sendStatus(500)
+            ({ stderr }) =>
+            {
+              response.status(500);
+              response.send(stderr);
+            }
           )
       );
 
@@ -71,7 +75,11 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
             () => response.sendStatus(200)
           )
           .catch(
-            () => response.sendStatus(500)
+            ({ stderr }) => 
+            {
+              response.status(500);
+              response.send(stderr);
+            }
           )
       )
     }
