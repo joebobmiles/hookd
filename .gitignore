@@ -3,4 +3,4 @@ node_modules/
 docker-compose.override.yml
 
 src/scripts/*
-!src/scripts/test.mjs
+!src/scripts/test.*
