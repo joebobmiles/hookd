@@ -1,4 +1,4 @@
-FROM docker:20-dind
+FROM docker:20
 
 ARG PORT=30000
 ENV HOOKD_PORT=${PORT}
