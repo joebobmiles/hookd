@@ -3,10 +3,7 @@ const fs = require("fs").promises;
 
 const hookd = express();
 
-hookd.get(
-  "/up",
-  (_, response) => response.sendStatus(200)
-);
+hookd.get("/up", (_, response) => response.sendStatus(200));
 
 hookd.post(
   "/docker",
