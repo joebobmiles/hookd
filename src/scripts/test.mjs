@@ -1,3 +1,3 @@
 #!/usr/bin/env zx
 
-await $`echo ${process.env.message}`;
+await $`docker ps`;
