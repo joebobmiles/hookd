@@ -1,10 +1,10 @@
-FROM node:16-alpine3.13
+FROM docker:20-dind
 
 ARG PORT=30000
 ENV HOOKD_PORT=${PORT}
 EXPOSE ${HOOKD_PORT}
 
-RUN apk add shadow
+RUN apk add shadow nodejs npm
 RUN useradd -ms /bin/ash hookd
 RUN apk del shadow
 

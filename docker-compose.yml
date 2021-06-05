@@ -7,3 +7,5 @@ services:
             - "${HOOKD_HOST_PORT:-6578}:${HOOKD_PORT:-6578}"
         volumes:
             - ./src/scripts:/tmp/scripts
+            - /var/run/docker.sock:/var/run/docker.sock
+        privileged: yes
