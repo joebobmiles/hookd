@@ -1,8 +1,7 @@
-const util = require("util")
 const path = require("path");
 const fs = require("fs");
 const express = require("express");
-
+const util = require("util")
 const execFile = util.promisify(require("child_process").execFile);
 
 const hookd = express();
