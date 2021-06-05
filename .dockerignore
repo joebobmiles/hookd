@@ -8,3 +8,5 @@ Dockerfile
 .dockerignore
 
 .env*
+
+src/scripts/
