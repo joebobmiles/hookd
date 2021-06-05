@@ -1,15 +1,15 @@
 {
-  "name": "docker-webhook",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@joebobmiles/hookd",
+  "version": "0.0.0",
+  "description": "A simple, containerized webhook server.",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "develop": "nodemon -e json,js,mjs,sh -L ./src/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Joseph R Miles <joe@jrm.dev> (https://jrm.dev)",
+  "license": "Unlicense",
   "dependencies": {
     "express": "^4.17.1"
   },
