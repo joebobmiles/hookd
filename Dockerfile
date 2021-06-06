@@ -2,7 +2,6 @@ FROM docker:20
 
 ARG PORT=30000
 ENV HOOKD_PORT=${PORT}
-EXPOSE ${HOOKD_PORT}
 
 RUN apk add shadow nodejs npm
 RUN useradd -ms /bin/ash hookd
