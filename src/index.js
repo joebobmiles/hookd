@@ -72,10 +72,10 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
           (request, response) =>
             invokeScript(getArgs[verb](request))
             .then(
-              ({ stdin }) =>
+              ({ stdout }) =>
               {
                 response.status(200);
-                response.send(stdin);
+                response.send(stdout);
               }
             )
             .catch(
