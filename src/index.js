@@ -60,37 +60,33 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
           }
         );
 
-      app.get(
-        route,
-        (request, response) =>
-          invokeScript(request.query)
-          .then(
-            () => response.sendStatus(200)
-          )
-          .catch(
-            ({ stderr }) =>
-            {
-              response.status(500);
-              response.send(stderr);
-            }
-          )
-      );
+      const getArgs = {
+        get: (request) => request.query,
+        post: (request) => request.body,
+      };
 
-      app.post(
-        route,
-        async (request, response) =>
-          invokeScript(request.body)
-          .then(
-            () => response.sendStatus(200)
-          )
-          .catch(
-            ({ stderr }) => 
-            {
-              response.status(500);
-              response.send(stderr);
-            }
-          )
-      )
+      for (let verb of [ "get", "post" ])
+      {
+        app[verb](
+          route,
+          (request, response) =>
+            invokeScript(getArgs[verb](request))
+            .then(
+              ({ stdin }) =>
+              {
+                response.status(200);
+                response.send(stdin);
+              }
+            )
+            .catch(
+              ({ stderr }) =>
+              {
+                response.status(500);
+                response.send(stderr);
+              }
+            )
+        );
+      }
     }
   }
 
