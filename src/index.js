@@ -93,10 +93,11 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
       )
     }
   }
+
+  dir.close();
 };
 
 registerScripts(scriptsDir, hookd)
-scriptsDir.close();
 
 hookd.get("/up", (_, response) => response.sendStatus(200));
 
