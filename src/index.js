@@ -46,8 +46,6 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
         entry.name
       );
 
-      console.log(route, scriptPath);
-
       const invokeScript = async (env) =>
         await execFile(
           scriptPath,
