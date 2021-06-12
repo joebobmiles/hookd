@@ -1,3 +1,4 @@
 #!/bin/sh
 
-echo "Hello, World!"
+cd /srv/hookd
+docker-compose ps
