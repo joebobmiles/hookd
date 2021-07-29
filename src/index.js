@@ -53,7 +53,19 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
           {
             env: {
               ...process.env,
-              ...env
+              ...Object.entries(env).reduce(
+                (acc, [ prop, value ]) =>
+                  Object.assign(
+                    acc,
+                    {
+                      [prop]:
+                        typeof value !== 'object'
+                        ? value
+                        : JSON.stringify(value)
+                    }
+                  ),
+                {}
+              )
             }
           }
         );
