@@ -89,7 +89,7 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
               }
             )
             .catch(
-              ({ stderr }) =>
+              ({ stdout, stderr }) =>
               {
                 response.status(500);
                 response.send(stderr);
