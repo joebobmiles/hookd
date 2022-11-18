@@ -48,7 +48,7 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
 
       const invokeScript = async (env) =>
       {
-        console.log(scriptPath, process.env, env);
+        console.log(scriptPath);
         await execFile(
           scriptPath,
           [],
