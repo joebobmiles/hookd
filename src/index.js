@@ -93,6 +93,7 @@ const registerScripts = (dir, app, accumulatedPath = "/") =>
               {
                 response.status(500);
                 response.send(stderr);
+                console.log(stdout, stderr);
               }
             )
         );
