@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-echo $release
+exit 0
