@@ -22,11 +22,8 @@ jobs:
       - name: Build container
         run: docker-compose build
 
-      - name: Log into Docker
-        run: echo ${DOCKER_TOKEN} | docker login --username ${DOCKER_USER} --password-stdin
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      - name: Log into GitHub Container Registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io --username ${{ secrets.USER }} --password-stdin
 
       - name: Push container
         run: docker-compose push

@@ -1,7 +1,7 @@
 services:
     hookd:
         container_name: hookd
-        image: joebobmiles/hookd
+        image: ghcr.io/joebobmiles/hookd
         restart: unless-stopped
         ports:
             - "${HOOKD_HOST_PORT:-6578}:${HOOKD_PORT:-6578}"
